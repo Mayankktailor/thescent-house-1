@@ -1,0 +1,49 @@
+<section class="box-section">
+    <div class="box-inner-div">
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+        <div class="box-main-div">
+        <div class="box-main-img">
+        <img src="{{ product.featured_image | img_url:'' }}">
+        </div>
+        <div class="box-main-detail">
+        <div class="box-main-title">
+        <h2>{{ product.title }}</h2>
+        <div class="box-main-div-title">{{ product.variants.first.title }}</div>
+        </div>
+
+        <div class="box-main-price">
+        <span>{{ product.price | money }}</span>
+        </div>
+        </div>
+        </div>
+      {%- endfor -%}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "newfeatured-collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 2,
+      "default": 4,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "newfeatured-collection"
+    }
+  ]
+}
+{% endschema %}
