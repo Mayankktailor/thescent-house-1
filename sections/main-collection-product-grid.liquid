@@ -1,0 +1,463 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-product-grid.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection.css' | asset_url | stylesheet_tag }}
+
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+<section class="collection-sec">
+  <div class="coll-bread-sort">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Byredo</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ collection.title }}</li>
+      </ol>
+    </nav>
+    <div class="coll-sort">
+      <div class="coll-sort-title">
+        <label>Sort<i class="fa fa-angle-down" aria-hidden="true"></i></label>
+      </div>
+      <div class="sort-type">
+        <div class="sort-bg"></div>
+        <div class="sort-inner">
+          <label><strong>Sort by</strong></label>
+          <ul class="coll-sort-box">
+            <li>
+              <label class="collection-box">Popularity
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+              </label>
+            </li>
+            <li>
+              <label class="collection-box">Products
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+              </label>
+            </li>
+            <li>
+              <label class="collection-box">Ascending price
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+              </label>
+            </li>
+            <li>
+              <label class="collection-box">Color
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="collection-item">
+    <div class="collection-item-inner-div">
+      {% for  product in collection.products %}
+      <div class="collection-item-main-div coll-item-join-{{ forloop.index }}">
+        <a href="{{ product.url | within: collection }}">
+          <div class="collection-item-main-img">
+            <img src="{{ product.featured_image | img_url:'master'}}">
+          </div>
+       </a>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>{{ product.title }}</h2>
+            {% comment %} <div class="collection-item-main-div-title">3x12ml Eau de Parfum</div> {% endcomment %}
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>{{ product.price | money }}</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+      {% comment %} <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/box1.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Bal d'Afrique</h2>
+            <div class="collection-item-main-div-title">50ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>135 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div coll-item-join">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item1.jpg">
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item2.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>BYREDO x Ouai</h2>
+            <div class="collection-item-main-div-title">140g Leave-in conditioner</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>28 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/box3.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Gypsy Water</h2>
+            <div class="collection-item-main-div-title">50ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>135 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/box4.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Blanche</h2>
+            <div class="collection-item-main-div-title">50ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>135 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item4.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Mojave Ghost </h2>
+            <div class="collection-item-main-div-title">50ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>135 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item5.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Blanche</h2>
+            <div class="collection-item-main-div-title">100ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>200 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item6.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>La Sélection Nomade</h2>
+            <div class="collection-item-main-div-title">3x12ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>84 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item7.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Rose Of No Man's Land </h2>
+            <div class="collection-item-main-div-title">50ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>135 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item8.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Open Sky</h2>
+            <div class="collection-item-main-div-title">100ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>190 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/candel-cup1.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Bibliothèque</h2>
+            <div class="collection-item-main-div-title">240g candle</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>62 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/hand-wash2.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Vetyver</h2>
+            <div class="collection-item-main-div-title">450ml Hand wash</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>40 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/hand-wash1.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Suede</h2>
+            <div class="collection-item-main-div-title">450ml Hand wash</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>40 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item3.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Bibliothèque</h2>
+            <div class="collection-item-main-div-title">50ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>135 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item9.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Mixed Emotions</h2>
+            <div class="collection-item-main-div-title">50ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>135 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="collection-item-main-div">
+        <div class="collection-item-main-img">
+          <img src="img/coll-item10.jpg">
+        </div>
+        <div class="collection-item-main-detail">
+          <div class="collection-item-main-title">
+            <h2>Young Rose</h2>
+            <div class="collection-item-main-div-title">100ml Eau de Parfum</div>
+          </div>
+
+          <div class="collection-item-main-price">
+            <span>190 €</span>
+          </div>
+        </div>
+      </div> {% endcomment %}
+    </div>
+  </div>
+</section>
+
+
+
+{% comment %} {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+  {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+
+  <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
+    {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+  </div>
+{%- endif -%}
+
+<div id="ProductGridContainer">
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- if collection.products.size == 0 -%}
+      <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+        <div class="loading-overlay gradient"></div>
+        <div class="title-wrapper center">
+          <h2 class="title title--primary">
+            {{ 'sections.collection_template.empty' | t }}<br>
+            {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+          </h2>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="collection page-width">
+        <div class="loading-overlay gradient"></div>
+
+        <ul id="product-grid" data-id="{{ section.id }}" class="
+          grid grid--2-col negative-margin product-grid
+          {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
+            {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
+          {% endif %}">
+          {%- for product in collection.products -%}
+            <li class="grid__item">
+              {% render 'product-card',
+                product_card_product: product,
+                media_size: section.settings.image_ratio,
+                show_secondary_image: section.settings.show_secondary_image,
+                add_image_padding: section.settings.add_image_padding,
+                show_vendor: section.settings.show_vendor,
+                show_image_outline: section.settings.show_image_outline,
+                show_rating: section.settings.show_rating
+              %}
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        {%- if paginate.pages > 1 -%}
+          {% render 'pagination', paginate: paginate, anchor: '' %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endpaginate -%}
+</div> {% endcomment %}
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-product-grid.name",
+  "class": "spaced-section collection-grid-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_image_padding",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.add_image_padding.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_outline",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.show_image_outline.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "collapse_on_larger_devices",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.collapse_on_larger_devices.label"
+    }
+  ]
+}
+{% endschema %}

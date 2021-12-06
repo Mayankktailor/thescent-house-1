@@ -1,0 +1,147 @@
+.related-product {
+    margin-top: 50px;
+  }
+  
+  @media (max-width: 767px) {
+    .related-product {
+      margin-top: 30px;
+    }
+  }
+  
+  .related-product .nav-tabs {
+    border-bottom: none;
+  }
+  
+  .related-product .nav-tabs .nav-item {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .nav-tabs .nav-item {
+      width: 50%;
+      text-align: center;
+    }
+  }
+  
+  .related-product .nav-tabs .nav-item .nav-link {
+    font-size: 15px;
+    color: #717171;
+    border: none;
+    padding: 0 20px;
+    border: none;
+  }
+  
+  .related-product .nav-tabs .nav-item .active {
+    color: #000;
+  }
+  
+  .related-product .tab-content {
+    padding-top: 50px;
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .tab-content {
+      padding-top: 30px;
+    }
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div {
+      display: block;
+    }
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div {
+    width: calc(100% / 4);
+    position: relative;
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div {
+      width: 100%;
+    }
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-img img {
+    width: 100%;
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: absolute;
+    bottom: 3%;
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail {
+      position: unset;
+      padding: 20px 15px;
+      display: block;
+    }
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail .related-product-main-title {
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail .related-product-main-title h2 {
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    line-height: 25px;
+    font-weight: 400;
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail .related-product-main-title h2 {
+      line-height: 14px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail .related-product-main-title {
+      padding: 0;
+    }
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail .related-product-main-price {
+    text-align: right;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 767px) {
+    .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail .related-product-main-price {
+      padding: 0;
+      text-align: center;
+    }
+  }
+  
+  .related-product .tab-content .tab-pane .related-product-inner-div .related-product-main-div .related-product-main-detail .related-product-main-price span {
+    font-size: 14px;
+    font-weight: 400;
+  }
